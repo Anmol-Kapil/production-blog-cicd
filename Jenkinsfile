@@ -76,7 +76,7 @@ pipeline {
             }
         }
 
-        /*
+        
         Uncomment after Maven Settings (maven-settings) is configured
 
         stage('Publish Artifact to Nexus') {
@@ -90,7 +90,7 @@ pipeline {
                 }
             }
         }
-        */
+        
 
         stage('Docker Build') {
             steps {
