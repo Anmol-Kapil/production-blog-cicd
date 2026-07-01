@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+
+metadata:
+  name: production-blog-service
+  namespace: production-blog
+
+spec:
+  type: LoadBalancer
+
+  selector:
+    app: production-blog
+
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
