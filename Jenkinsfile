@@ -76,9 +76,6 @@ pipeline {
             }
         }
 
-        
-        
-
         stage('Publish Artifact to Nexus') {
             steps {
                 withMaven(
@@ -90,7 +87,6 @@ pipeline {
                 }
             }
         }
-        
 
         stage('Docker Build') {
             steps {
@@ -120,6 +116,36 @@ pipeline {
                         """
                     }
                 }
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                sh '''
+                export HOME=/var/jenkins_home
+                export AWS_PAGER=""
+                export KUBECONFIG=/var/jenkins_home/.kube/config
+
+                kubectl apply -f k8s/namespace.yaml
+                kubectl apply -f k8s/deployment.yaml
+                kubectl apply -f k8s/service.yaml
+                '''
+            }
+        }
+
+        stage('Verify Deployment') {
+            steps {
+                sh '''
+                export HOME=/var/jenkins_home
+                export AWS_PAGER=""
+                export KUBECONFIG=/var/jenkins_home/.kube/config
+
+                kubectl rollout status deployment/production-blog-app -n production-blog
+
+                kubectl get pods -n production-blog
+
+                kubectl get svc -n production-blog
+                '''
             }
         }
     }
