@@ -50,6 +50,7 @@ Jenkins Pipeline
 ```
 
 ---
+<img width="1671" height="941" alt="image" src="https://github.com/user-attachments/assets/f6288ae5-3fb7-406f-9a72-6d0feae7e941" />
 
 # Project Structure
 
