@@ -1,13 +1,13 @@
-package com.example.twitterapp;
+package com.example.cloudnativehub;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class TwitterAppApplication {
+public class CloudNativeHubApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(TwitterAppApplication.class, args);
+		SpringApplication.run(CloudNativeHubApplication.class, args);
 	}
 
 }

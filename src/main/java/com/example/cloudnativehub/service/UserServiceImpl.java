@@ -1,7 +1,7 @@
-package com.example.twitterapp.service;
+package com.example.cloudnativehub.service;
 
-import com.example.twitterapp.model.User;
-import com.example.twitterapp.repository.UserRepository;
+import com.example.cloudnativehub.model.User;
+import com.example.cloudnativehub.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

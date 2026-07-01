@@ -1,4 +1,4 @@
-package com.example.twitterapp.config;
+package com.example.cloudnativehub.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

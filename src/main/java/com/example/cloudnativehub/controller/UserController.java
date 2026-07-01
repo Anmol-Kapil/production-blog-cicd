@@ -1,7 +1,7 @@
-package com.example.twitterapp.controller;
+package com.example.cloudnativehub.controller;
 
-import com.example.twitterapp.model.User;
-import com.example.twitterapp.service.UserService;
+import com.example.cloudnativehub.model.User;
+import com.example.cloudnativehub.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;

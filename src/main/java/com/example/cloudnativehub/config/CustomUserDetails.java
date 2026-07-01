@@ -1,4 +1,4 @@
-package com.example.twitterapp.config;
+package com.example.cloudnativehub.config;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

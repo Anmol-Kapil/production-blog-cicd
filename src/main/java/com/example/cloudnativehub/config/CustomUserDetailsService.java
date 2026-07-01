@@ -1,7 +1,7 @@
-package com.example.twitterapp.config;
+package com.example.cloudnativehub.config;
 
-import com.example.twitterapp.model.User;
-import com.example.twitterapp.repository.UserRepository;
+import com.example.cloudnativehub.model.User;
+import com.example.cloudnativehub.repository.UserRepository;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

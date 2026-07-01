@@ -1,4 +1,4 @@
-package com.example.twitterapp.model;
+package com.example.cloudnativehub.model;
 
 import jakarta.persistence.*;
 

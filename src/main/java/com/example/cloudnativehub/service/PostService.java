@@ -1,7 +1,7 @@
-package com.example.twitterapp.service;
+package com.example.cloudnativehub.service;
 
-import com.example.twitterapp.model.Post;
-import com.example.twitterapp.repository.PostRepository;
+import com.example.cloudnativehub.model.Post;
+import com.example.cloudnativehub.repository.PostRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;

@@ -1,10 +1,10 @@
-package com.example.twitterapp;
+package com.example.cloudnativehub;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TwitterAppApplicationTests {
+class CloudNativeHubTests {
 
 	@Test
 	void contextLoads() {

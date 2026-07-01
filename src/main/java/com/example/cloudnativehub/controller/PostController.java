@@ -1,9 +1,9 @@
-package com.example.twitterapp.controller;
+package com.example.cloudnativehub.controller;
 
-import com.example.twitterapp.config.CustomUserDetails;
-import com.example.twitterapp.model.Post;
-import com.example.twitterapp.service.PostService;
-import com.example.twitterapp.service.UserService;
+import com.example.cloudnativehub.config.CustomUserDetails;
+import com.example.cloudnativehub.model.Post;
+import com.example.cloudnativehub.service.PostService;
+import com.example.cloudnativehub.service.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;

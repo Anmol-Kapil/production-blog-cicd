@@ -1,6 +1,6 @@
-package com.example.twitterapp.service;
+package com.example.cloudnativehub.service;
 
-import com.example.twitterapp.model.User;
+import com.example.cloudnativehub.model.User;
 
 public interface UserService {
     User findByUsername(String username);
