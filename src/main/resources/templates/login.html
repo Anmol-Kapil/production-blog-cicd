@@ -215,48 +215,95 @@
 </head>
 
 <body>
+
     <div class="navbar">
-        <h1>Testing pipeline DevOps Shack</h1>
+        <h1>CloudNative Hub</h1>
+
         <div class="links">
-            <a href="https://www.youtube.com/@devopsshack/videos" target="_blank">YouTube</a>
-            <a href="https://www.instagram.com/devopsshack/" target="_blank">Instagram</a>
-            <a href="https://www.devopsshack.com/" target="_blank">Courses</a>
+            <a th:href="@{/home}">Home</a>
+            <a href="https://github.com/Anmol-Kapil" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
         </div>
     </div>
 
     <div class="form-container">
+
+        <div style="text-align:center;margin-bottom:25px;">
+            <h2>Welcome Back</h2>
+            <p style="color:#cccccc;">
+                Production-Ready Cloud Native Blog Platform
+            </p>
+        </div>
+
         <div th:if="${param.error}">
             <div class="error-message">
-                <p>Invalid Username or Password</p>
+                <p>Invalid username or password.</p>
             </div>
         </div>
 
         <div th:if="${param.logout}">
             <div class="logout-message">
-                <p>Logout Successful!</p>
+                <p>You have successfully logged out.</p>
             </div>
         </div>
 
-        <h2>Login</h2>
-        <form th:action="@{/login}" method="post" role="form" th:object="${user}">
+        <form th:action="@{/login}" method="post" th:object="${user}">
 
-            <label for="username">Username:</label>
-            <input th:field="*{username}" type="text" id="username" name="username"
-                placeholder="Enter your Username" required>
+            <label for="username">Username</label>
 
-            <label for="password">Password:</label>
-            <input th:field="*{password}" type="password" id="password" name="password"
-                placeholder="Enter your Password" required>
+            <input
+                th:field="*{username}"
+                type="text"
+                id="username"
+                placeholder="Enter your username"
+                required>
 
-            <button type="submit">Login</button>
+            <label for="password">Password</label>
+
+            <input
+                th:field="*{password}"
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+                required>
+
+            <button type="submit">
+                Sign In
+            </button>
+
         </form>
-        <p class="form-footer">Don't have an account? <a th:href="@{/register}">Register</a> here.</p>
+
+        <p class="form-footer">
+            New to CloudNative Hub?
+            <a th:href="@{/register}">
+                Create an account
+            </a>
+        </p>
+
+        <hr style="margin:25px 0;border:1px solid #444;">
+
+        <p style="text-align:center;color:#bbbbbb;font-size:14px;">
+            Built with
+            <br><br>
+            Spring Boot • Docker • Jenkins • Kubernetes
+            <br>
+            AWS EKS • Terraform • Prometheus • Grafana
+        </p>
+
     </div>
 
     <div class="footer">
-        <p>&copy; 2026 testing DevOps Shack. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+
+        <p>
+            © 2026 CloudNative Hub | Built by <strong>Anmol Kapil</strong>
+            <br><br>
+
+            End-to-End DevSecOps Project using Jenkins, SonarQube,
+            Nexus, Docker, Terraform, Kubernetes,
+            Prometheus and Grafana.
+        </p>
+
     </div>
+
 </body>
-
 </html>
-
