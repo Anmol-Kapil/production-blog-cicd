@@ -1,151 +1,409 @@
-### Full-Stack Blog App 
-```
-Job Scenario:
-I was tasked with setting up a CI/CD pipeline for a full-stack blogging app hosted on GitHub.
-The project involves integrating Jenkins for build and deployment, using SonarQube for code quality checks,
-Nexus for artifact management, and Docker for containerizing the application.
-Once deployed, we will monitor the application using Prometheus, Blackbox Exporter, and visualize it with Grafana.
-I integrated Email notification script using Groovy to send alerts when the pipeline fails or succeeds. 
-```
+# CloudNative Hub - Production-Ready DevSecOps CI/CD Pipeline 🚀
 
-![1_9CvhrnA6Fg1LTmMjr3n3Kg](https://github.com/user-attachments/assets/837ea1ca-f69e-40a1-b4ee-15ace4dc3892)
+## Project Scenario
+
+```
+A production-ready Spring Boot application was deployed using a complete DevSecOps CI/CD pipeline on AWS.
+
+The objective of this project was to automate the entire software delivery lifecycle, starting from source code integration to deployment on Amazon EKS.
+
+The pipeline integrates Jenkins for Continuous Integration and Continuous Deployment, SonarQube for code quality analysis, Trivy for security vulnerability scanning, Nexus Repository for artifact management, Docker for containerization, Terraform for Infrastructure as Code (IaC), Kubernetes (Amazon EKS) for orchestration, and Prometheus with Grafana for monitoring and visualization.
+
+The application was customized and rebranded as CloudNative Hub to demonstrate a complete production-style deployment.
+```
 
 ---
 
-### Project Structure.
+# Architecture
 
-``` 
-/full-stack-blogging-app
-├── /ci-scripts
-│   ├── install_jenkins.sh
-│   ├── install_docker.sh
-│   ├── install_blackbox.sh
-│   ├── prometheus.yml
-│   └── grafana_dashboard.json
-├── /kubernetes
-│   ├── deployment.yml
-│   ├── service.yml
-│   ├── role.yaml
-│   ├── rolebinding.yaml
-│   └── serviceaccount.yaml
-├── /terraform
-│   ├── main.tf
+```
+Developer
+      │
+      ▼
+GitHub
+      │
+      ▼
+Jenkins Pipeline
+      │
+      ├── Git Checkout
+      ├── Compile
+      ├── Unit Testing
+      ├── SonarQube Analysis
+      ├── Quality Gate
+      ├── Trivy File System Scan
+      ├── Package
+      ├── Publish Artifact to Nexus
+      ├── Docker Build
+      ├── Trivy Image Scan
+      ├── Docker Push
+      ├── Deploy to Amazon EKS
+      └── Verify Deployment
+                     │
+                     ▼
+              Amazon EKS Cluster
+                     │
+                     ▼
+          CloudNative Hub Application
+                     │
+                     ▼
+        Prometheus + Grafana Monitoring
+```
+
+---
+
+# Project Structure
+
+```text
+production-blog-cicd
+│
+├── Dockerfile
+├── Jenkinsfile
+├── pom.xml
+├── README.md
+│
+├── EKS_Terraform
+│   ├── provider.tf
+│   ├── versions.tf
+│   ├── vpc.tf
+│   ├── iam.tf
+│   ├── eks.tf
+│   ├── nodegroup.tf
 │   ├── variables.tf
 │   ├── outputs.tf
-├── /src
-│   ├── app.js
-│   ├── Dockerfile
-│   └── ...
+│   └── terraform.tfvars
+│
+├── k8s
+│   ├── namespace.yaml
+│   ├── deployment.yaml
+│   └── service.yaml
+│
+└── src
+    ├── main
+    └── test
+```
+
+---
+
+# Project Overview
+
+This project demonstrates a complete **Production-Ready DevSecOps CI/CD Pipeline** for deploying a **Spring Boot CloudNative Hub application** on **Amazon Elastic Kubernetes Service (EKS)**.
+
+The entire deployment process is automated using Jenkins, where every code commit goes through source code compilation, testing, code quality analysis, security scanning, artifact management, Docker image creation, deployment to Kubernetes, and monitoring.
+
+---
+
+# Technologies Used
+
+| Category | Technologies |
+|-----------|-------------|
+| Programming | Java, Spring Boot |
+| CI/CD | Jenkins |
+| Code Quality | SonarQube |
+| Security | Trivy |
+| Artifact Repository | Nexus Repository |
+| Containerization | Docker |
+| Container Registry | Docker Hub |
+| Infrastructure as Code | Terraform |
+| Cloud | AWS EC2, AWS EKS, IAM, VPC |
+| Orchestration | Kubernetes |
+| Monitoring | Prometheus, Grafana |
+| Version Control | Git, GitHub |
+
+---
+
+# Objectives
+
+- Build an automated DevSecOps pipeline
+- Perform Static Application Security Testing (SAST) using SonarQube
+- Scan project dependencies and Docker images using Trivy
+- Store build artifacts in Nexus Repository
+- Build and publish Docker images automatically
+- Provision AWS infrastructure using Terraform
+- Deploy the application to Amazon EKS
+- Monitor Kubernetes infrastructure using Prometheus and Grafana
+
+---
+
+# CI/CD Pipeline
+
+## Stage 1 — Source Code
+
+- Developer pushes code to GitHub
+
+---
+
+## Stage 2 — Continuous Integration
+
+Jenkins automatically performs:
+
+- Git Checkout
+- Maven Compile
+- Unit Testing
+
+---
+
+## Stage 3 — Code Quality
+
+SonarQube performs
+
+- Static Code Analysis
+- Bug Detection
+- Vulnerability Detection
+- Code Smell Analysis
+- Quality Gate Validation
+
+---
+
+## Stage 4 — Security
+
+Trivy performs
+
+- File System Scan
+- Docker Image Vulnerability Scan
+
+---
+
+## Stage 5 — Artifact Management
+
+Build artifacts are automatically published to Nexus Repository.
+
+---
+
+## Stage 6 — Docker
+
+Jenkins
+
+- Builds Docker Image
+- Tags Image
+- Pushes Image to Docker Hub
+
+---
+
+## Stage 7 — Infrastructure
+
+Terraform provisions
+
+- VPC
+- Public Subnets
+- Internet Gateway
+- Route Tables
+- IAM Roles
+- Amazon EKS Cluster
+- Managed Node Group
+
+---
+
+## Stage 8 — Kubernetes Deployment
+
+Application deployed using
+
+- Namespace
+- Deployment
+- Service (LoadBalancer)
+
+---
+
+## Stage 9 — Monitoring
+
+Prometheus collects metrics from the Kubernetes environment.
+
+Grafana visualizes
+
+- CPU Usage
+- Memory Usage
+- Disk Usage
+- Network Usage
+- Node Health
+
+---
+
+# Repository Structure
+
+```
+production-blog-cicd
+│
+├── Dockerfile
+├── Jenkinsfile
+├── pom.xml
 ├── README.md
+│
+├── EKS_Terraform/
+│
+├── k8s/
+│
+└── src/
 ```
 
 ---
 
-####
+# Deployment Steps
+
+## Clone Repository
+
+```bash
+git clone https://github.com/Anmol-Kapil/production-blog-cicd.git
+
+cd production-blog-cicd
+```
+
 ---
 
-```markdown
-# Full-Stack Blogging App CI/CD Project 🚀
+## Configure Jenkins
 
-## Project Overview
-This project demonstrates a complete **CI/CD pipeline** setup for deploying a full-stack blogging application, integrating modern tools like Jenkins, SonarQube, Nexus, Docker, Kubernetes (EKS), and Prometheus for monitoring. This repository showcases the **automation of code quality checks, artifact management, application deployment, and monitoring** in a production-like environment.
+Install
 
-## Key Technologies & Tools
-- Jenkins: Continuous Integration and Continuous Deployment.
-- SonarQube: Static code analysis for quality and security checks.
-- Nexus: Artifact repository manager.
-- Docker: Containerization of the application.
-- Kubernetes (EKS): Orchestration of containerized applications.
-- Prometheus & Grafana: Monitoring and visualization of application performance.
-- Blackbox Exporter: Probing application availability and uptime monitoring.
+- JDK
+- Maven
+- Sonar Scanner
+- Docker
+- Trivy
 
-## Objectives
-1. Automate the CI/CD pipeline: Automate building, testing, and deploying the blogging app.
-2. Enhance code quality and security: Use SonarQube for static code analysis and Trivy for vulnerability scans.
-3. Deploy to Kubernetes (EKS): Use Terraform to deploy and manage Kubernetes infrastructure on AWS.
-4. Monitor the application: Use Prometheus, Blackbox Exporter, and Grafana for real-time monitoring and alerting.
+Configure credentials
 
-## Repository Structure
-- `/ci-scripts`: Shell scripts for installing Jenkins, Docker, Prometheus, Grafana, and Blackbox Exporter.
-- `/kubernetes`: Kubernetes manifests for deploying the app and setting up roles and access.
-- `/terraform`: Infrastructure as Code (IaC) files to provision an EKS cluster.
-- `/src`: The source code and Dockerfile for the blogging application.
+- GitHub
+- Docker Hub
+- SonarQube
+- Nexus
 
-## CI/CD Pipeline Overview
+---
 
-1. **GitHub Integration**: Jenkins pulls the latest changes from the GitHub repository and triggers the pipeline.
-2. **Build & Test**:
-   - The code is compiled and built using Maven.
-   - Code analysis is done using SonarQube.
-   - Trivy scans for vulnerabilities.
-3. **Docker & Nexus**:
-   - Jenkins builds a Docker image for the application.
-   - The image is tagged and pushed to DockerHub.
-   - Artifacts are pushed to Nexus.
-4. **Kubernetes Deployment**:
-   - The app is deployed to an EKS cluster.
-   - Kubernetes handles scaling and service management.
-5. **Monitoring**:
-   - Prometheus scrapes metrics from the Blackbox Exporter.
-   - Grafana visualizes application uptime, health, and other critical metrics.
+## Provision Infrastructure
 
-## Steps to Reproduce the Project
-
-### 1. Clone the Repository
 ```bash
-git clone https://github.com/ougabriel/full-stack-blogging-app.git
-cd full-stack-blogging-app
-```
+cd EKS_Terraform
 
-### 2. Setup CI/CD Pipeline with Jenkins
-- Install Jenkins using the provided script:
-```bash
-./ci-scripts/install_jenkins.sh 
-```
-- Configure Jenkins with plugins for Docker, SonarQube, Maven, and Kubernetes.
-
-### 3. Set up Kubernetes (EKS)
-- Deploy the EKS cluster using Terraform:
-```bash
-cd terraform
 terraform init
-terraform apply --auto-approve
+
+terraform plan
+
+terraform apply
 ```
-- Apply Kubernetes manifests to deploy the application:
-```bash
-kubectl apply -f kubernetes/deployment.yml
-```
-
-### 4. Setup Monitoring with Prometheus and Grafana
-- Install Prometheus and Grafana using the provided scripts:
-```bash
-./ci-scripts/install_blackbox.sh
-./ci-scripts/install_prometheus.sh
-```
-- Access Grafana and Prometheus through the browser:
-  - Grafana: `http://<your-server-ip>:3000`
-  - Prometheus: `http://<your-server-ip>:9090`
-
-## Key Pipeline Stages
-1. Git Checkout: Pulls the latest code from GitHub.
-2. Build & Analysis: Maven builds the app, SonarQube analyzes the code.
-3. Vulnerability Scan: Trivy scans the Docker image for vulnerabilities.
-4. Docker Build & Push: Builds a Docker image and pushes it to DockerHub.
-5. Deploy to EKS: Deploys the app to the Kubernetes cluster.
-6. Monitor: Monitors uptime and performance using Prometheus and Grafana.
-
-## Project Highlights
-- Full CI/CD Automation: Automates the entire software development lifecycle, from code commit to deployment.
-- Real-Time Monitoring: Integrates a comprehensive monitoring system using Prometheus and Grafana to ensure the app's health.
-- Security-Focused: Static code analysis via SonarQube and vulnerability scans via Trivy ensure high code quality and security.
-
-## Demonstration
-Check out the [full blog post](https://medium.com/@ougabriel/cicd-project-production-level-blog-app-deployment-using-eks-nexus-sonarqube-trivy-with-40eb648a688a) about the CI/CD project!
-
 
 ---
 
-## Contact
-If you have any questions or suggestions, feel free to contact me at [ougabriel@gmail.com](mailto:ougabriel@gmail.com).
+## Deploy Kubernetes Resources
+
+```bash
+kubectl apply -f k8s/namespace.yaml
+
+kubectl apply -f k8s/deployment.yaml
+
+kubectl apply -f k8s/service.yaml
+```
+
+---
+
+## Verify Deployment
+
+```bash
+kubectl get nodes
+
+kubectl get pods -n production-blog
+
+kubectl get svc -n production-blog
+
+kubectl rollout status deployment/production-blog-app -n production-blog
+```
+
+---
+
+## Monitoring
+
+Prometheus
 
 ```
+http://<EC2-IP>:9090
+```
+
+Grafana
+
+```
+http://<EC2-IP>:3000
+```
+
+Jenkins
+
+```
+http://<EC2-IP>:8080
+```
+
+SonarQube
+
+```
+http://<EC2-IP>:9000
+```
+
+Nexus
+
+```
+http://<EC2-IP>:8081
+```
+
+---
+
+# Features
+
+- End-to-End DevSecOps Pipeline
+- Production-Style Jenkins Pipeline
+- Automated Docker Image Creation
+- Static Code Analysis
+- Security Vulnerability Scanning
+- Infrastructure as Code
+- Kubernetes Deployment
+- AWS EKS Integration
+- Real-Time Monitoring
+- CloudNative Hub Custom UI
+
+---
+
+# Challenges Faced
+
+- GitHub large file push failures due to Terraform provider binaries
+- Terraform state management
+- Jenkins authentication with Amazon EKS
+- SonarQube Quality Gate failures
+- Kubernetes image refresh issues
+- Docker image tagging and deployment synchronization
+
+---
+
+# Future Improvements
+
+- Add Blackbox Exporter
+- Implement Email Notifications
+- Add Kubernetes Horizontal Pod Autoscaler
+- Configure Ingress Controller
+- Integrate AWS Route53 with custom domain
+- Deploy using Helm Charts
+- Implement GitHub Webhook automation
+
+---
+
+# Screenshots
+
+- Jenkins Pipeline
+- SonarQube Dashboard
+- Nexus Repository
+- Docker Hub Repository
+- Terraform Apply
+- Amazon EKS Cluster
+- Kubernetes Pods
+- Kubernetes Services
+- CloudNative Hub Login Page
+- CloudNative Hub Home Page
+- Prometheus Dashboard
+- Grafana Dashboard
+
+---
+
+# Author
+
+**Anmol Kapil**
+
+Electronics & Computer Engineering Student
+
+Cloud | DevOps | Kubernetes | AWS | Java | Spring Boot
+
+GitHub: https://github.com/Anmol-Kapil
+
+LinkedIn: *(Add your LinkedIn profile here)*
