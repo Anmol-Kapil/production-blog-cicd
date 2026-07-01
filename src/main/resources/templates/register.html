@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Registration</title>
+    <title>CloudNative Hub | Create Account</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
@@ -16,7 +16,7 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            background: linear-gradient(135deg, #6e45e2, #88d3ce);
+            background: linear-gradient(135deg, #0f172a, #2563eb);
             color: #ffffff;
             overflow-x: hidden;
         }
@@ -225,22 +225,22 @@
 
 <body>
     <div class="navbar">
-        <h1>DevOps Shack</h1>
+        <h1>CloudNative Hub</h1>
         <div class="links">
-            <a href="https://www.youtube.com/@devopsshack/videos" target="_blank">YouTube</a>
-            <a href="https://www.instagram.com/devopsshack/" target="_blank">Instagram</a>
-            <a href="https://www.devopsshack.com/" target="_blank">Courses</a>
+            <a href="https://github.com/Anmol-Kapil" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+            <a href="/" target="_blank">Home</a>
         </div>
     </div>
 
     <div class="form-container">
         <div th:if="${param.success}">
             <div class="success-message">
-                <p>Registration Successful!</p>
+                <p>Create Account Successful!</p>
             </div>
         </div>
 
-        <h2>Registration</h2>
+        <h2>Create Account</h2>
         <form th:action="@{/register}" method="post" role="form" th:object="${user}">
             <label for="username">Username:</label>
             <input th:field="*{username}" type="text" id="username" name="username"
@@ -250,7 +250,7 @@
             <input th:field="*{password}" type="password" id="password" name="password"
                 placeholder="Enter your Password" required>
 
-            <button type="submit">Register</button>
+            <button type="submit">Create Account</button>
         </form>
 
         <div th:if="${Userexist}">
@@ -258,12 +258,12 @@
         </div>
 
         <div class="form-footer">
-            Already have an account? <a th:href="@{/login1}">Login</a> here.
+            Already have an account? <a th:href="@{/login1}">Sign In</a> here.
         </div>
     </div>
 
     <div class="footer">
-        <p>&copy; 2024 DevOps Shack. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p>&copy; 2024 CloudNative Hub. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
     </div>
 </body>
 
